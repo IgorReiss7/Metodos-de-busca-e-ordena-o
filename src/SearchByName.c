@@ -3,14 +3,15 @@
 #include "Animal.h"
 #include "globals.h"
 
-void buscarPorNome(){
+void searchByName(){
     if (qtd ==0){
-        printf("\nNenhum animal com esse nome foi encontradi!");
+        printf("\nNenhum animal cadastrado!");
         return;
     }
     char nomeBusca[50];
     printf("Digite o nome do animal: ");
-    scanf("%49[^\n]", nomeBusca);
+    fflush(stdin);
+    scanf(" %49[^\n]", nomeBusca);
 
     for (int i = 0; i < qtd; i++) {
         if (strcmp(listAnimals[i].nome,nomeBusca) == 0) {

@@ -9,9 +9,9 @@ void ordering1() {
         return;
     }
 
-    for (int i =0; i < qtd -1; i--) {
+    for (int i =0; i < qtd -1; i++) {
         for (int j = 0; j < qtd - 1 - i; j++) {
-            if (strcmp(listAnimals[j].nome, listAnimals[j + 1].nome) > 0) {
+            if (strcmp(listAnimals[j].nome, listAnimals[j +1].nome) > 0) {
             Animal temp = listAnimals[j];
             listAnimals[j] = listAnimals[j + 1];
             listAnimals[j + 1] = temp;

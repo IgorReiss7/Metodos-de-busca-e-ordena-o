@@ -5,12 +5,12 @@
 
 void searchBySpecies(){
     if (qtd ==0){
-        printf("Nenhum animal dessa espécie foi encontrado");
+        printf("Nenhum animal cadastrado");
         return;
     }
     char buscarEspecie[50];
     printf("\nDigite a espécie do animal que deseje buscar: ");
-    scanf("%49[^\n]",buscarEspecie);
+    scanf(" %49[^\n]",buscarEspecie);
 
     int encontrado = 0;
 

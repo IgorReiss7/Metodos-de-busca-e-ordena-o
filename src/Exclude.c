@@ -12,9 +12,7 @@ void exclude() {
     char nomeBuscar[50];
     printf("Digite o nome do animal que deseja excluir: ");
     scanf(" %49[^\n]", nomeBuscar);
-
     int index = -1;
-
     // Procurando pelo nome
     for (int i = 0; i < qtd; i++) {
         if (strcmp(listAnimals[i].nome, nomeBuscar) ==0) { //Compara com strcmp

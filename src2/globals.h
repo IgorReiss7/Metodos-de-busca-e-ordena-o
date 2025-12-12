@@ -4,7 +4,8 @@
 #include "Animal.h"
 
 #define MAX 10
-extern Animal listAnimals[MAX];
+extern Animal filaAnimais[MAX];
+extern Animal pilhaAnimais[MAX];
 extern int qtd;
 
 #endif

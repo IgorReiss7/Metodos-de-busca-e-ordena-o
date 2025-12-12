@@ -13,7 +13,7 @@ void display() { //Testa se NÃO tem animais cadastrados
     for (int i = 0; i < qtd; i++) { //começa do 0, vai até o índice qtd - 1 e percorrendo somente os animais cadastrados
         printf("\n Animal %d\n",i+1); //Mostra o número do animal na lista (começando do 1, não do 0).
         printf("Nome: %s\n", listAnimals[i].nome);
-        printf("Especie: %s\n", listAnimals[i].especie);
+        printf("Espécie: %s\n", listAnimals[i].especie);
         printf("Idade: %d\n", listAnimals[i].idade);
     }
 }

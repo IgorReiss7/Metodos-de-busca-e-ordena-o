@@ -18,8 +18,14 @@ int qtd = 0; //quantidade de animais cadastrados até o momento
 //e cada um deles tera: nome, idade e especie
 void insert();
 void display();
-void excluir();
-    //função inserir
+void exclude();
+void search();
+void searchByName();
+void searchBySpecies();
+void searchByAge();
+void ordering1();
+void ordering2();
+void ordering3();
 
 
 

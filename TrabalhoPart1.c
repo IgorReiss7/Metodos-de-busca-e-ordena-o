@@ -287,7 +287,7 @@ int main() {
             printf("\n--- Métodos de Busca ---\n");
             printf("1 - BuscaLinear\n");
             printf("2 - BuscaBinária\n");
-            printf("3 - \n");
+            printf("3 - Busca Hash\n");
             printf("Escolha o método: ");
             
             scanf("%d", &opcBusca);
@@ -295,7 +295,8 @@ int main() {
 
             switch (opcBusca) {
                 case 1: LinearSearch(); break;
-                case 2: BinarySearch(); break;     
+                case 2: BinarySearch(); break;
+                case 3: HashSearch(); break; 
                 default: printf("Opção inválida!\n");
             }
             break;
@@ -333,3 +334,4 @@ int main() {
 
     return 0;
 }
+

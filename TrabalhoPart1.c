@@ -11,6 +11,35 @@ typedef struct {
 Animal listAnimals[MAX];
 int qtd = 0;
 
+#define TAM_HASH 19
+Animal hashTable[TAM_HASH];
+int ocupado[TAM_HASH]; 
+
+int hashNome(char *nome) {
+    int h = 0;
+    while (*nome) {
+        h = (h * 31 + *nome) % TAM_HASH;
+        nome++;
+    }
+    return h;
+}
+
+void construirHash() {
+    for (int i = 0; i < TAM_HASH; i++)
+        ocupado[i] = 0;
+
+    for (int i = 0; i < qtd; i++) {
+        int pos = hashNome(listAnimals[i].nome);
+
+        while (ocupado[pos]) {
+            pos = (pos + 1) % TAM_HASH;
+        }
+
+        hashTable[pos] = listAnimals[i];
+        ocupado[pos] = 1;
+    }
+}
+
 void insert() {
     if (qtd >= MAX) {
         printf("Lista cheia\n");
@@ -122,6 +151,39 @@ void BinarySearch() {
         }
     }
     printf("animal não encontrado\n");
+}
+
+void HashSearch() {
+    if (qtd == 0) {
+        printf("Nenhum animal foi cadastrado.\n");
+        return;
+    }
+
+    construirHash(); 
+
+    char buscarNome[50];
+    printf("Digite o nome do animal que deseja buscar: ");
+    scanf(" %49[^\n]", buscarNome);
+
+    int pos = hashNome(buscarNome);
+    int inicio = pos;
+
+    while (ocupado[pos]) {
+        if (strcmp(hashTable[pos].nome, buscarNome) == 0) {
+            printf("\nAnimal encontrado (Hash)!\n");
+            printf("Nome: %s\n", hashTable[pos].nome);
+            printf("Espécie: %s\n", hashTable[pos].especie);
+            printf("Idade: %d\n", hashTable[pos].idade);
+            return;
+        }
+
+        pos = (pos + 1) % TAM_HASH;
+
+        if (pos == inicio)
+            break; 
+    }
+
+    printf("Animal não encontrado (Hash).\n");
 }
 
 void BubbleSort() {

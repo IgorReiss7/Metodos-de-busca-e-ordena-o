@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "Animal.h"
 #include "globals.h"
-
+#include "Display.h"
 void ordering3() {
     if (qtd <2) {
         printf("\nPoucos elementos para ordenar.");
@@ -18,5 +18,6 @@ void ordering3() {
         }
         listAnimals[j+1] = atual;
     }
+    display();
     printf("\nOrdenado com Insertion Sort.");
 }

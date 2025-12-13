@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "Animal.h"
 #include "globals.h"
-
+#include "Display.h"
 void ordering1() {
     if (qtd < 2) {
         printf("\nPoucos elementos para ordenar.");
@@ -18,5 +18,6 @@ void ordering1() {
         }
     }
 }
+    display();
     printf("\n Ordenado por método bubble sort");
 }

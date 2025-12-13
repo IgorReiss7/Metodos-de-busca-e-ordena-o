@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "Animal.h"
 #include "globals.h"
-
+#include "Display.h"
 void ordering2() {
     if (qtd < 2) {
     printf("\nPoucos elementos para ordenar.");
@@ -21,6 +21,6 @@ void ordering2() {
             listAnimals[menor]= temp;
         }
     }
-
+    display();
     printf("\nOrdenado com Selection Sort.");
 }

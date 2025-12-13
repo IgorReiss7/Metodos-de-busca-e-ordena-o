@@ -10,6 +10,7 @@
 #include "OrderingInsertionSort.h"
 #include "OrderingSelectionSort.h"
 #include "globals.h"
+#include "globals.c"
 
 // Função para limpar buffer após scanf
 void limparBuffer() {
@@ -101,3 +102,4 @@ int main() {
 
     return 0;
 }
+

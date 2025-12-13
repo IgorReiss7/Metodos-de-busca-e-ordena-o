@@ -4,6 +4,7 @@
 #include "Animal.h"
 
 #define MAX 10
+
 extern Animal listAnimals[MAX];
 extern int qtd;
 

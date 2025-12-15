@@ -12,6 +12,11 @@ Animal pilhaAnimais[MAX];
 int qtdF = 0;
 int qtdP = 0;
 
+void limparBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
 void Enfileirar () {
     if (qtdF>= MAX){
         printf("Lista cheia"); 
@@ -106,3 +111,57 @@ void Desenfileirar(){
         printf("não há mais animais para serem excluidos");
     }
 }
+
+int main() {
+
+    int options;
+
+    do {
+        printf("\n=========== MENU ===========\n");
+        printf("1 - Enfileirar\n");
+        printf("2 - Empilhar\n");
+        printf("3 - Exibir Fila\n");
+        printf("4 - Exibir Pilha\n");
+        printf("5 - Desenfileirar\n");
+        printf("6 - Desempilhar\n");
+        printf("7 - Sair\n");
+        printf("============================\n");
+        printf("Escolha uma opcao: ");
+
+        scanf("%d", &options);
+        limparBuffer(); 
+        switch (options) {
+
+        case 1:
+            Enfileirar();
+            break;
+
+        case 2:
+            Empilhar();
+            break;
+
+        case 3:
+            ExibirFila();
+            break;
+
+        case 4:
+            ExibirPilha();
+            break;
+
+        case 5:
+            Desenfileirar();
+            break;
+
+        case 6:
+            Desempilhar();
+            break;
+
+        case 7:
+            printf("saindo\n");
+            break;
+
+        default: 
+            printf("Opção inválida\n");
+        };
+    } while (options!=0);
+};

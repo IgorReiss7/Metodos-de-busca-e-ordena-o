@@ -1,36 +1,34 @@
 #include <stdio.h>
-#include "Animal.h"
 #include <string.h>
-#include "globals.h"
-#include "globals.c"
+typedef struct {
+    char nome[50];
+    char especie[50];
+    int idade;
+} Animal;
 
-void Desempilhar (){
-    if (qtdP>0){
-    qtdP--;
-    }
-    else {
-        printf("não há animais para desempilhar");
-    }
-}
+#define MAX 10
+Animal filaAnimais[MAX];
+Animal pilhaAnimais[MAX];
+int qtdF = 0;
+int qtdP = 0;
 
-void Desenfileirar(){
-    if (qtdF>0){
-        if (qtdP<MAX){
-        pilhaAnimais[qtdP]=filaAnimais[0];
-        qtdP++;
-        }
-        else{
-            printf("não é possivel desenfileirar pois a pilha já está cheia");
-        }
-        for(int i=0; i<qtdF-1; i++){
-            strcpy (filaAnimais[i].nome, filaAnimais[i+1].nome);
-            strcpy (filaAnimais[i].especie, filaAnimais[i+1].especie);
-            filaAnimais[i].idade = filaAnimais[i+1].idade;
-        }
-        qtdF--;
-    } else{
-        printf("não há mais animais para serem excluidos");
+void Enfileirar () {
+    if (qtdF>= MAX){
+        printf("Lista cheia"); 
+        return;
     }
+
+    printf("Nome do animal: ");
+    scanf(" %49[^\n]", filaAnimais[qtdF].nome);
+
+    printf("Especie: ");
+    scanf(" %49[^\n]", filaAnimais[qtdF].especie);
+
+    printf("idade do animal: ");
+    scanf("%d", &filaAnimais[qtdF].idade); 
+   
+    qtdF++;
+    printf("Animal cadastrado com sucesso!\n");
 }
 
 void Empilhar () {
@@ -49,25 +47,6 @@ void Empilhar () {
     scanf("%d", &pilhaAnimais[qtdP].idade); 
    
     qtdP++;
-    printf("Animal cadastrado com sucesso!\n");
-}
-
-void Enfileirar () {
-    if (qtdF>= MAX){
-        printf("Lista cheia"); 
-        return;
-    }
-
-    printf("Nome do animal: ");
-    scanf(" %49[^\n]", filaAnimais[qtdF].nome);
-
-    printf("Especie: ");
-    scanf(" %49[^\n]", filaAnimais[qtdF].especie);
-
-    printf("idade do animal+: ");
-    scanf("%d", &filaAnimais[qtdF].idade); 
-   
-    qtdF++;
     printf("Animal cadastrado com sucesso!\n");
 }
 
@@ -99,19 +78,31 @@ void ExibirPilha() {
     }
 }
 
-int main (){
-    Empilhar();
-    Empilhar();
-    Empilhar();
-    Empilhar();
-    Empilhar();
-    Empilhar();
-    Empilhar();
-    Empilhar();
-    Empilhar();
-    Empilhar();
-    Empilhar();
-    ExibirFila();
-    ExibirPilha();
-    return 0;
+void Desempilhar (){
+    if (qtdP>0){
+    qtdP--;
+    }
+    else {
+        printf("não há animais para desempilhar");
+    }
+}
+
+void Desenfileirar(){
+    if (qtdF>0){
+        if (qtdP<MAX){
+        pilhaAnimais[qtdP]=filaAnimais[0];
+        qtdP++;
+        }
+        else{
+            printf("não é possivel desenfileirar pois a pilha já está cheia");
+        }
+        for(int i=0; i<qtdF-1; i++){
+            strcpy (filaAnimais[i].nome, filaAnimais[i+1].nome);
+            strcpy (filaAnimais[i].especie, filaAnimais[i+1].especie);
+            filaAnimais[i].idade = filaAnimais[i+1].idade;
+        }
+        qtdF--;
+    } else{
+        printf("não há mais animais para serem excluidos");
+    }
 }
